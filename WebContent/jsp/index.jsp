@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <title>Welcome</title>
-  <link rel="stylesheet" href="/carrito/css/eshop.css" type="text/css"/>
+  <link rel="stylesheet" href="/eshop/css/eshop.css" type="text/css"/>
   </head>
 <body>
 <jsp:include page="TopMenu.jsp" flush="true"/>
