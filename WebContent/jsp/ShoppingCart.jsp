@@ -9,7 +9,7 @@
  String base = (String) application.getAttribute("base");
   @SuppressWarnings("unchecked")
    Hashtable<String, CartItem> shoppingCart =
-      (Hashtable<String, CartItem>)session.getAttribute("shoppingCart");
+      (Hashtable<String, CartItem>)session.getAttribute("carrito");
   if (shoppingCart == null) {
     shoppingCart = new Hashtable<String, CartItem>(10);
     }
@@ -22,7 +22,7 @@
         CartItem item = new CartItem(book, 1);
         shoppingCart.remove(bookId);
         shoppingCart.put(bookId, item);
-        session.setAttribute("shoppingCart", shoppingCart);
+        session.setAttribute("carrito", shoppingCart);
         }
       }
     catch (Exception e) {
@@ -56,7 +56,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <title>Shopping Cart</title>
-  <link rel="stylesheet" href="/eshop/css/eshop.css" type="text/css"/>
+  <link rel="stylesheet" href="/carrito/css/eshop.css" type="text/css"/>
   </head>
 <body>
 <jsp:include page="TopMenu.jsp" flush="true"/>

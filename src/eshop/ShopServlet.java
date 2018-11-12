@@ -44,7 +44,7 @@ public class ShopServlet extends javax.servlet.http.HttpServlet implements javax
 
 	protected void addItem(HttpServletRequest request, DataManager dm) {
 		HttpSession session = request.getSession(true);
-		Hashtable<String, CartItem> shoppingCart = (Hashtable<String, CartItem>) session.getAttribute("shoppingCart");
+		Hashtable<String, CartItem> shoppingCart = (Hashtable<String, CartItem>) session.getAttribute("carrito");
 		if (shoppingCart == null) {
 			shoppingCart = new Hashtable<String, CartItem>(10);
 		}
@@ -103,7 +103,7 @@ public class ShopServlet extends javax.servlet.http.HttpServlet implements javax
 			case "orderConfirmation":
 				url = base + "OrderConfirmation.jsp";
 				break;
-			case "showCartaddItem":
+			case "addItem":
 				addItem(request, datamanager);
 				url = base + "ShoppingCart.jsp";
 
