@@ -13,44 +13,44 @@
   if (shoppingCart == null) {
     shoppingCart = new Hashtable<String, CartItem>(10);
     }
-  String action = request.getParameter("action");
-  if (action != null && action.equals("addItem")) {
-    try {
-      String bookId = request.getParameter("bookId");
-      Book book = dataManager.getBookDetails(bookId);
-      if (book != null) {
-        CartItem item = new CartItem(book, 1);
-        shoppingCart.remove(bookId);
-        shoppingCart.put(bookId, item);
-        session.setAttribute("carrito", shoppingCart);
-        }
-      }
-    catch (Exception e) {
-      out.println("Error adding the selected book to the shopping cart!");
-      }
-    } 
-  if (action != null && action.equals("updateItem")) {
-    try {
-      String bookId = request.getParameter("bookId");
-      String quantity = request.getParameter("quantity");
-      CartItem item = shoppingCart.get(bookId);
-      if (item != null) {
-        item.setQuantity(quantity);
-        }
-      }
-    catch (Exception e) {
-      out.println("Error updating shopping cart!");
-      }
-    }
-  if (action != null && action.equals("deleteItem")) {
-    try {
-      String bookId = request.getParameter("bookId");
-      shoppingCart.remove(bookId);
-      }
-    catch (Exception e) {
-      out.println("Error deleting the selected item from the shopping cart!");
-      }
-    }
+//   String action = request.getParameter("action");
+//   if (action != null && action.equals("addItem")) {
+//     try {
+//       String bookId = request.getParameter("bookId");
+//       Book book = dataManager.getBookDetails(bookId);
+//       if (book != null) {
+//         CartItem item = new CartItem(book, 1);
+//         shoppingCart.remove(bookId);
+//         shoppingCart.put(bookId, item);
+//         session.setAttribute("carrito", shoppingCart);
+//         }
+//       }
+//     catch (Exception e) {
+//       out.println("Error adding the selected book to the shopping cart!");
+//       }
+//     } 
+//   if (action != null && action.equals("updateItem")) {
+//     try {
+//       String bookId = request.getParameter("bookId");
+//       String quantity = request.getParameter("quantity");
+//       CartItem item = shoppingCart.get(bookId);
+//       if (item != null) {
+//         item.setQuantity(quantity);
+//         }
+//       }
+//     catch (Exception e) {
+//       out.println("Error updating shopping cart!");
+//       }
+//     }
+//   if (action != null && action.equals("deleteItem")) {
+//     try {
+//       String bookId = request.getParameter("bookId");
+//       shoppingCart.remove(bookId);
+//       }
+//     catch (Exception e) {
+//       out.println("Error deleting the selected item from the shopping cart!");
+//       }
+//     }
   %>
 <html>
 <head>
