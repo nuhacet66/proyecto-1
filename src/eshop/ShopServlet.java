@@ -47,6 +47,7 @@ public class ShopServlet extends javax.servlet.http.HttpServlet implements javax
 		Hashtable<String, CartItem> shoppingCart = (Hashtable<String, CartItem>) session.getAttribute("carrito");
 		if (shoppingCart == null) {
 			shoppingCart = new Hashtable<String, CartItem>(10);
+			session.setAttribute("carrito", shoppingCart);
 		}
 		String action = request.getParameter("action");
 		if (action != null && action.equals("addItem")) {
@@ -57,13 +58,19 @@ public class ShopServlet extends javax.servlet.http.HttpServlet implements javax
 					CartItem item = new CartItem(book, 1);
 					shoppingCart.remove(bookId);
 					shoppingCart.put(bookId, item);
-					session.setAttribute("carrito", shoppingCart);
+				//	session.setAttribute("carrito", shoppingCart);
+					
 				}
 			} catch (Exception e) {
 				System.out.println("Error adding the selected book to the shopping cart!");
 			}
 		}
 	}
+
+
+	
+		
+
 
 	protected void updateItem(HttpServletRequest request) {
 		
